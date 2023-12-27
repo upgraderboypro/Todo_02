@@ -1,0 +1,28 @@
+// auth.post("/register", (req, res) => {
+//   const { name, email, pass, cpass } = req.body;
+//   if (!name || !email || !pass || !cpass) {
+//     return res.status(422).send({ err: "Plz., fill all the fields first..." });
+//   }
+//   User.findOne({ email: email }).then((userExist) => {
+//     if (userExist) {
+//       return res.status(400).send({ msg: "User already exists" });
+//     } else {
+//       const user = new User({
+//         name,
+//         email,
+//         pass,
+//         cpass
+//       });
+//       user
+//         .save()
+//         .then(() => {
+//           res.status(201).send({ msg: "User created successfully" });
+//         })
+//         .catch((err) => {
+//           res.status(500).send({ msg: "Failed to create user" });
+//         });
+//     }
+//   }).catch((err) => {
+//     res.status(500).send({ msg: "Failed to create user",err });
+//   });
+// });

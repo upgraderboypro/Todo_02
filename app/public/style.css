@@ -1,0 +1,257 @@
+:root {
+  --ff-sans: "Josefin Sans", sans-serif;
+  --base-font: 1.6rem;
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --img-bg: url("../assets/images/bg-desktop-dark.jpg");
+  --clr-primary: hsl(0, 0%, 98%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-page-bg: hsl(235, 21%, 11%);
+  --clr-card-bg: hsl(235, 24%, 19%);
+  --clr-blue: hsl(220, 98%, 61%);
+  --clr-green: hsl(192, 100%, 67%);
+  --clr-pink: hsl(280, 87%, 65%);
+  --clr-gb-1: hsl(236, 33%, 92%);
+  --clr-gb-2: hsl(234, 39%, 75%);
+  --clr-gb-3: hsl(234, 11%, 52%);
+  --clr-gb-4: hsl(237, 12%, 36%);
+  --clr-gb-5: hsl(233, 14%, 35%);
+  --clr-gb-6: hsl(235, 19%, 24%);
+  --clr-box-shadow: hsl(0, 0%, 0%, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  position: relative;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  user-select: none;
+}
+
+body {
+  font: var(--fw-normal) var(--base-font) var(--ff-sans);
+  background: var(--clr-page-bg) var(--img-bg) no-repeat 0% 0% / 100vw 30rem;
+  padding-top: 4rem;
+  width: min(85%, 54rem);
+  margin: auto;
+}
+input,
+button {
+  font: inherit; /* by default input elements won't inherit font 
+                    from its parent */
+  border: 0;
+  background: transparent;
+}
+
+input:focus,
+button:focus {
+  outline: 0;
+}
+
+button {
+  display: flex;
+  user-select: none;
+}
+
+.card {
+  background-color: var(--clr-card-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.9rem 2rem;
+  gap: 2rem;
+}
+header.card {
+  background: transparent;
+  padding: 0;
+  align-items: flex-start;
+}
+
+header.card h1 {
+  color: var(--clr-white);
+  letter-spacing: 1.3rem;
+  font-weight: 700;
+  font-size: calc(var(--base-font) * 2);
+}
+.add {
+  margin: 1rem 0 1.1rem 0;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+/* add-btn */
+.add .cb-container #add-btn {
+  color: var(--clr-gb-2);
+  font-size: var(--base-font);
+  transition: color 0.3s ease;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* add some transition for background */
+.add .cb-container {
+  transition: background 0.3s ease;
+}
+
+/* define some states */
+.add .cb-container:hover {
+  background: var(--clr-blue);
+}
+
+.add .cb-container:active {
+  transform: scale(0.95);
+}
+
+.add .cb-container:hover #add-btn {
+  color: var(--clr-white);
+}
+.add .txt-container {
+  flex: 1;
+}
+.add .txt-container .txt-input {
+  width: 100%;
+  padding: 0.7rem 0;
+  color: var(--clr-gb-1);
+}
+.add .txt-container .txt-input::placeholder {
+  color: var(--clr-gb-5);
+  font-weight: var(--fw-normal);
+}
+.card .cb-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1rem solid var(--clr-gb-5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.card .cb-container .cb-input {
+  transform: scale(1.8);
+  opacity: 0;
+}
+.card .cb-container .check {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card .cb-container .cb-input:checked + .check {
+  background: url("../assets/images/icon-check.svg"),
+    linear-gradient(45deg, var(--clr-green), var(--clr-pink));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.todos .card:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.todos > * + * {
+  border-top: 0.2rem solid var(--clr-gb-6);
+}
+.item {
+  flex: 1; /* item needs to be stretched */
+  color: var(--clr-gb-2);
+}
+
+/* Hover state */
+.item:hover {
+  color: var(--clr-gb-1);
+}
+.clear {
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+/* .clear when .card inside .todos is being hovered */
+.todos .card:hover .clear {
+  opacity: 1;
+}
+.stat {
+  border-radius: 0 0 0.5rem 0.5rem;
+  border-top: 0.2rem solid var(--clr-gb-6);
+  font-size: calc(var(--base-font) - 0.3rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Add color property */
+.stat * {
+  color: var(--clr-gb-4);
+}
+.stat .filter {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--fw-bold);
+}
+
+.stat .filter *:hover {
+  color: var(--clr-primary);
+}
+
+.stat .corner:last-child {
+  justify-self: end;
+}
+
+/* Hover state for button */
+.stat .corner button:hover {
+  color: var(--clr-primary);
+}
+footer {
+  margin: 4rem 0;
+  text-align: center;
+  color: var(--clr-gb-5);
+}
+
+@media (max-width: 599px) {
+  .stat {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5rem 2rem;
+  }
+  .stat .filter {
+    grid-row: 2/3;
+    grid-column: 1/3;
+    justify-content: space-around;
+  }
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.err {
+  color: red;
+  text-align: center;
+}
+.loading {
+  color: green;
+  text-align: center;
+}
